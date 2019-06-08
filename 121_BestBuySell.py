@@ -15,7 +15,7 @@ class Solution:
          
         return Max
 
-    # Method 2, my own worked one 92.48%
+    # Method 2, my own worked one 97.42%
     # Min = Buy, Max = Sell 
     def maxProfit2(self, prices):
         if not prices:
