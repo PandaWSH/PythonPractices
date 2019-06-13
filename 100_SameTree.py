@@ -30,3 +30,18 @@ class Solution:
             return False
         return q.val == p.val and self.isSameTree(p.right, q.right) and self.isSameTree(p.left,q.left)
 
+# flag method
+class Solution:
+    def __init__(self):
+        self.flag = True
+        
+    def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
+        if p is None or q is None:
+            if p != q:
+                self.flag = False
+        else:
+            if p.val != q.val:
+                self.flag = False
+            Solution.isSameTree(self, p.left, q.left)
+            Solution.isSameTree(self, p.right, q.right)
+        return self.flag
