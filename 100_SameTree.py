@@ -52,3 +52,21 @@ class Solution:
             return p == q
         return p.val == q.val and self.isSameTree(p.left, q.left) and \ 
         self.isSameTree(p.right, q.right)
+
+# method 4 DFS + stack
+class Solution(object):
+    def isSameTree(self, p, q):
+        stack = [(q, p)]
+        while stack:
+            n1, n2 = stack.pop()
+            
+            if n1 and n2:
+                if n1.val != n2.val:
+                    return False
+                stack += [(n1.right, n2.right), (n1.left, n2.left)]
+            elif n1 or n2:
+                return False
+            else:
+                continue
+            
+        return True
