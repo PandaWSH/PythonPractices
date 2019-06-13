@@ -45,3 +45,10 @@ class Solution:
             Solution.isSameTree(self, p.left, q.left)
             Solution.isSameTree(self, p.right, q.right)
         return self.flag
+
+# method 3
+    def isSameTree(self, p, q):
+        if not p or not q:
+            return p == q
+        return p.val == q.val and self.isSameTree(p.left, q.left) and \ 
+        self.isSameTree(p.right, q.right)
