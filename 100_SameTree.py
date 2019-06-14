@@ -30,3 +30,43 @@ class Solution:
             return False
         return q.val == p.val and self.isSameTree(p.right, q.right) and self.isSameTree(p.left,q.left)
 
+# flag method
+class Solution:
+    def __init__(self):
+        self.flag = True
+        
+    def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
+        if p is None or q is None:
+            if p != q:
+                self.flag = False
+        else:
+            if p.val != q.val:
+                self.flag = False
+            Solution.isSameTree(self, p.left, q.left)
+            Solution.isSameTree(self, p.right, q.right)
+        return self.flag
+
+# method 3
+    def isSameTree(self, p, q):
+        if not p or not q:
+            return p == q
+        return p.val == q.val and self.isSameTree(p.left, q.left) and \ 
+        self.isSameTree(p.right, q.right)
+
+# method 4 DFS + stack
+class Solution(object):
+    def isSameTree(self, p, q):
+        stack = [(q, p)]
+        while stack:
+            n1, n2 = stack.pop()
+            
+            if n1 and n2:
+                if n1.val != n2.val:
+                    return False
+                stack += [(n1.right, n2.right), (n1.left, n2.left)]
+            elif n1 or n2:
+                return False
+            else:
+                continue
+            
+        return True
