@@ -50,7 +50,7 @@ class Solution:
                 diff = -(minus[i]+minus[j])
                 if diff in plus_c:
                     result.add((minus[i],minus[j],diff))
-                    
+
         # plus plus minus
         p = len(plus)
         for i in range(p):
@@ -59,3 +59,18 @@ class Solution:
                 if diff in minus_c:
                     result.add((diff,plus[i],plus[j]))
         return list(result)
+
+        #method three time exceed
+        '''
+		in this method, instead of initialize result as set([]), it was initialized as [], and "add" function was
+		replaced by "append".
+		in addition, in the final section, following code was added
+			diction = {}
+			for i in range(len(result)):
+			    if result[i] not in diction.values():
+			        diction[i]=result[i]
+			    else:
+			        pass
+			return list(diction.values())
+		However, this method had time limit exceed problem
+        '''
