@@ -29,23 +29,23 @@ class Solution:
                     return resultset[i+1]
                 else:
                     return resultset[i]
+
     #online method
     def threeSumClosest(self, nums: List[int], target: int) -> int:
         nums.sort()
-        res = sum(nums[:3])
+        res = sum(nums[:3]) #initialize
         # ensure diff as a postive integer, so don't need use abs().
         diff = target - res if target > res else res - target
         
         
         for i in range(len(nums) - 2):
-
             if i > 0 and nums[i] == nums[i - 1]:
                 # skip adjadcent duplicates
                 continue
                 
-            l, r = i + 1, len(nums) - 1
+            l, r = i + 1, len(nums) - 1 #same as problem#15, left and right
             if nums[i] + nums[r-1] + nums[r] <= target:
-                # compare with the largest subset
+                # compare with the largest subset with current nums[i]
                 
                 s = nums[i] + nums[r-1] + nums[r]
                 if s == target:
@@ -56,7 +56,7 @@ class Solution:
                     diff = target - s
 
             elif nums[i] + nums[l] + nums[l+1] >= target:
-                # compare with the smallest subset
+                # compare with the smallest subset with current nums[i]
                 
                 s = nums[i] + nums[r-1] + nums[r]
                 if s == target:
@@ -68,7 +68,7 @@ class Solution:
             else:
                 while l < r:
                     s = nums[i] + nums[l] + nums[r]
-
+                    # still confusing
                     if s == target:
                         return s
                     elif s < target:
@@ -82,3 +82,6 @@ class Solution:
                             res = s
                             diff = s - target
         return res
+
+
+
