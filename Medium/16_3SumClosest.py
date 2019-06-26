@@ -30,7 +30,7 @@ class Solution:
                 else:
                     return resultset[i]
 
-    #online method
+    #online method (40ms + 13.3 MB [99.71% + 18.67%])
     def threeSumClosest(self, nums: List[int], target: int) -> int:
         nums.sort()
         res = sum(nums[:3]) #initialize
