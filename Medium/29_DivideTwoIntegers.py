@@ -31,7 +31,7 @@ class Solution:
             return 2**31-1
 
 
-    # binary search 32ms + 13.1 MB ( 96.37% + 86.84%)
+    # binary search 32ms + 13.1 MB ( 96.37% + 86.84%  )
 	def divide(self, dividend, divisor):
 	    """
 	    :type dividend: int
