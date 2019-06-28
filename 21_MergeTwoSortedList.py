@@ -1,14 +1,13 @@
 #Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+#class ListNode:
+#    def __init__(self, x):
+#        self.val = x
+#        self.next = None
 
 class Solution:
     def mergeTwoLists(self, l1, l2):
         sentinel = ListNode(1) #create the sentinel, value doesn't matter
         c = sentinel
-
 
         while l1 and l2:    
             if l1.val > l2.val:
@@ -18,7 +17,7 @@ class Solution:
                 c.next = l1
                 l1 = l1.next
             c = c.next # doesn't affect sentinuel.rest
-        
+        # 后面的两个while l1和while l2写复杂了，用method 2即可
         while l2:
             c.next = l2
             l2 = l2.next
@@ -30,6 +29,7 @@ class Solution:
             c = c.next
         return sentinel.next
 
+    # second time - 第二轮自己写也用了这个方法
     def mergeTwoList2(self, l1, l2):
         dummy = cur = ListNode(0)#same
         while l1 and l2:
@@ -42,7 +42,7 @@ class Solution:
             cur = cur.next
         # -----------above part is the same
 
-        cur.next = l1 or l2
+        cur.next = l1 or l2 # IMPORTANT ：此时l1和l2必定已经有一个为None，这一行目的在于append上还没变None的LList剩下的部分
         cur = cur.next # if delet this uneccessary line, it improve from 81% & 77% --> 93% & 98%
         return dummy.next
 
