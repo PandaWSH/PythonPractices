@@ -1,7 +1,5 @@
 class Solution(object):
-    '''
-    my method
-    '''
+    # my method
     def lengthOfLastWord1(self, s):
         if len(s) == 0:
             return 0
@@ -16,14 +14,9 @@ class Solution(object):
                 ind += 1
             return new_s[ind]
         
-    '''
-    Method found online, inspiration
-    '''
+
+    # Method found online, inspiration
     def lengthOfLastWord2(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
         if not s:
             return 0
         l=[len(i) for i in s.split(' ')]
@@ -36,6 +29,18 @@ class Solution(object):
         # until not fulfill above condition, 
         # return the length
         return l[j]
+
+    # second time - split function, 24ms + 13.1MB (99.68% + 89.84%)
+    def lengthOfLastWord(self, s):
+        if not s:
+            return 0
+        ss = s.split(" ")
+        i = len(ss) - 1
+        while i >= 0:
+            if ss[i] != '':
+                return len(ss[i])
+            i-=1
+        return 0
 
 
 
