@@ -62,3 +62,35 @@ class Solution:
             return mid + 1
         else:
             return mid
+
+    # second time - same as method 3 (36ms + 13.6MB [78.85% + 74.5%])
+    def searchInsert(self, nums, target):
+        low = 0
+        high = len(nums)-1 
+        mid = int((low + high) * 0.5)
+        
+        while low <= high:
+            if target > nums[mid]:
+                low = mid + 1
+                mid = int(0.5 * (low + high))
+            elif target < nums[mid]:
+                high = mid - 1
+                mid = int(0.5 * (low + high))
+            elif target == nums[mid]:
+                return mid
+            
+        if target > nums[mid]:
+            return mid+1
+        else:
+            return mid
+
+
+
+
+
+
+
+
+
+
+
