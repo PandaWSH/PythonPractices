@@ -63,7 +63,7 @@ class Solution:
         else:
             return mid
 
-    # second time - same as method 3 (36ms + 13.6MB [78.85% + 74.5%])
+    # second time - Binary Search same as method 3 (36ms + 13.6MB [78.85% + 74.5%])
     def searchInsert(self, nums, target):
         low = 0
         high = len(nums)-1 
