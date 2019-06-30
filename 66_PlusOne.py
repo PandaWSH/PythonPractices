@@ -1,7 +1,5 @@
 class Solution:
-    '''
-    My own method of solving problem 66
-    '''
+    # My own method 1: 36ms + 13.2MB
     def plusOne(self, digits: List[int]) -> List[int]:
         #initialize index and result
         ind = 1
@@ -23,3 +21,13 @@ class Solution:
         fin.append(result)
         #because of append, the order need to be reversed
         return fin[::-1]
+
+    # second time - my method 2 28ms + 13MB [98.88% + 87.29%]
+    def plusOne(self, digits: List[int]) -> List[int]:
+        l = len(digits)
+        result = 0
+        for i in range(l):
+            result += digits[i] * 10**(l-i-1)
+        result += 1
+        result = str(result)
+        return [int(i) for i in result]
