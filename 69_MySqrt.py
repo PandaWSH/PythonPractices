@@ -12,3 +12,21 @@ class Solution:
         result = str(x ** 0.5)
         r = result.split('.')
         return int(r[0])
+
+    # second time - binary search
+    def mySqrt(self, x):
+        if x == 0:
+            return 0
+        left = 1
+        right = x
+        while left <= right:
+            mid = (left + right) >> 1 # same as int( (left + right)/2 )
+            if mid * mid > x:
+                right = mid
+            elif mid * mid < x:
+                if mid == left:
+                    return mid
+                left = mid
+            else:
+                return mid
+        return None
