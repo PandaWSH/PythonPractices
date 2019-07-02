@@ -39,7 +39,11 @@ class Solution:
                 i1 += 1 #由于nums1已经整体后移了，所以要继续比较这个数的话，i1也需要+1
                 i2 += 1 #比较下一个nums2的数字
             else:
-                i1 += 1
+                i1 += 1 #nums1维持现状，直到找到下一个更大的数（from nums2）            
+        # nums2全部比较完之后会出wile-condition
+
+        # 或者nums1全部比较完会出while-condition，但是此时nums2还有剩【判定：i2还没有到nums2最后一位】
+        # 所以需要补气剩下的nums2
         if i2 < n:
             nums1[m:] = nums2[i2:]
             
