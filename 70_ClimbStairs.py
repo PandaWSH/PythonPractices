@@ -42,3 +42,11 @@ class Solution:
             else:
                 dp[i] = dp[i-1]
         return(dp[-1])
+
+
+    # second time - still DP [24ms + 13.1MB (99.62% + 74.92%)]
+    def climbStairs(n):
+        curr = prev = 1
+        for i in range(n-1):
+            curr, prev = curr + prev, curr
+        return curr
