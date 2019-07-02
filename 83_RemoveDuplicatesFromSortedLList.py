@@ -8,15 +8,15 @@ class Solution:
         if head == None:
             return head
         
-        current = head.next
+        pointer = head.next
         prev = head
         
-        while current != None:
-            if current.val == prev.val:
-                prev.next = current.next #只有这一行会对head进行改变
-                current = current.next
+        while pointer != None:
+            if pointer.val == prev.val:
+                prev.next = pointer.next #只有这一行会对head进行改变
+                pointer = pointer.next
             else:
-                current = current.next
+                pointer = pointer.next
                 prev = prev.next
         
         return head
