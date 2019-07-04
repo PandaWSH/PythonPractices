@@ -44,3 +44,32 @@ class Solution:
                         result[r][c] = result[r-1][c-1] + result[r-1][c]
                     
         return result
+
+    # second time - 32ms +13.3MB [91.89% + 8.10%] similar to method two
+    def generate(self, numRows: int) -> List[List[int]]:
+        if numRows == 0:
+            return []
+        elif numRows == 1:
+            return [[1]]
+        elif numRows == 2:
+            return[[1],[1,1]]
+        result = [[1],[1,1]]
+        row = 3
+        while row <= numRows:            
+            thisRow = [1]*row
+            print(thisRow)
+            for i in range(1,row-1):
+                thisRow[i] = result[row-2][i-1] + result[row-2][i]            
+            result.append(thisRow)
+            row+=1
+        return result
+
+    # second time - 36ms + 13.2MB (75.39% + 40.41%)
+    def generate(self, numRows: int) -> List[List[int]]:
+        nums = [[1 for i in range(j+1)]for j in range(numRows)] #occupyingi space
+        for i in range(2,numRows,+1):
+            for j in range(1,i,+1):
+
+                nums[i][j] = nums[i-1][j-1] + nums[i-1][j]
+
+        return nums
