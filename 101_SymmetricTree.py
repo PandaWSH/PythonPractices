@@ -55,5 +55,20 @@ class Solution:
             else:
                 continue # 关键，不能在这时return false，因为有可能stack还没有空
         return True
+
+# second time - 40ms + 13.3MB (74.15% + 24.84%)
+class Solution:
+    def isSymmetric(self, root: TreeNode) -> bool:
+        
+        def helper(self,p,q):
+            if not p and not q:
+                return True
+            if not p or not q:
+                return False
+            return p.val == q.val and helper(self,p.left,q.right) and helper(self,p.right,q.left)
+        
+        if not root:
+            return True        
+        return helper(self,root.left,root.right)
                 
         
