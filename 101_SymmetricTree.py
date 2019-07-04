@@ -22,3 +22,38 @@ class Solution:
         if not a or not b:
             return False
         return a.val == b.val and self.helpSymmetric(a.left,b.right) and self.helpSymmetric(a.right, b.left)
+
+# second time - stack 36ms + 13.2MB (90.88% + 44.39%)
+class Solution:
+    def isSymmetric(self, root: TreeNode) -> bool:
+        if not root:
+            return True
+        
+        leftt = root.left
+        rightt = root.right
+        
+        if not leftt and not rightt:
+            return True
+        elif not leftt or not rightt:
+            return False
+        elif leftt and rightt:
+            return self.helper(leftt,rightt) # 一定要return，不能只写self.helper
+        else:
+            return True
+        
+    def helper(self, p, q):
+        stack = [(p, q)]
+        while stack:
+            n1, n2 = stack.pop()
+            
+            if n1 and n2:
+                if n1.val != n2.val:
+                    return False
+                stack += [(n1.right, n2.left), (n1.left, n2.right)] #关键
+            elif n1 or n2:
+                return False
+            else:
+                continue # 关键，不能在这时return false，因为有可能stack还没有空
+        return True
+                
+        
