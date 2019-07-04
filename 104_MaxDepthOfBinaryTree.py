@@ -28,18 +28,56 @@ class Solution1:
     # 24ms + 14.6MB (98.03% + 57.11%)
     def maxDepth(self, root):       
         # intertive solution
-        ls = [root]
+        origin = [root]
+        height = 0
+        while set(origin) != {None}:
+            height += 1
+            queue = []
+            for o in origin:
+                if o is not None:
+                    queue.append(o.left)
+                    queue.append(o.right)
+            origin = queue
+        return height
+
+    # second time - iteration solution
+    def maxDepth(self, root):
+        # Runtime: 36 ms, faster than 41.30% Memory Usage: 14.4 MB, less than 5.14%
+        stack = []        
+        if root is not None:
+            stack.append((1, root))
+        
         depth = 0
-
-        # when it's non-zero
-        while set(ls) != {None}: 
-            depth += 1
-            # queue
-            ls_ = []
-
-            for l in ls:
-                if l is not None:
-                    ls_.append(l.left)
-                    ls_.append(l.right)
-            ls = ls_
+        while stack != []:
+            current_depth, root = stack.pop()
+            if root is not None:
+                depth = max(depth, current_depth)
+                stack.append((current_depth + 1, root.left))
+                stack.append((current_depth + 1, root.right))     
         return depth
+
+    # second time - DFS iterative solution 没有完全想通
+    def maxDepth(self, root):
+        depth = 0 # initialize depth
+        if not root:
+            return depth
+        stack = []
+        value = []
+        stack.append(root)
+        value.append(depth + 1)
+        while stack:
+            node = stack.pop()
+            temp = value.pop()
+            depth = max(temp, depth)
+            if node.right:
+                stack.append(node.right)
+                value.append(temp + 1)
+            if node.left:
+                stack.append(node.left)
+                value.append(temp + 1)
+        return depth
+
+
+
+
+
