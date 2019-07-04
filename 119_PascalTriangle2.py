@@ -28,3 +28,23 @@ class Solution:
         for i in range(rowIndex):
             row = [u+v for u, v in zip(row+[0], [0]+row)]
         return row
+
+
+
+
+    # second time - DP method 36ms + 13.1MB (76.77% + 84.51%)
+    def getRow(self, rowIndex: int) -> List[int]:
+        result = [[1],[1,1]]
+        if rowIndex == 0:            
+            return result[0]
+        if rowIndex == 1:
+            return result[1]
+        
+        row = 2
+        while row <= rowIndex:
+            result.pop(0)
+            result.append([1]*(row+1))
+            for i in range(1,row):
+                result[1][i] = result[0][i-1] + result[0][i]
+            row += 1
+        return result[1]
