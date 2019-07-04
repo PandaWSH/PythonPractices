@@ -39,7 +39,7 @@ class Solution:
             return False
         return q.val == p.val and self.isSameTree(p.right, q.right) and self.isSameTree(p.left,q.left)
 
-# flag method
+# flag method 32ms + 13.1MB [90.67% + 72.14%]
 class Solution:
     def __init__(self):
         self.flag = True
@@ -61,7 +61,7 @@ class Solution:
             return p == q
         return p.val == q.val and self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
 
-# method 4 DFS + stack
+# method 4 DFS + stack 72.52% + 85.24% [36ms + 13.1MB]
 class Solution(object):
     def isSameTree(self, p, q):
         stack = [(q, p)]
