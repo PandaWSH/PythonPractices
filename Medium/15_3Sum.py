@@ -1,5 +1,5 @@
 class Solution:
-	# 1080 ms + 16.9 MB (36.79% + 41.11%)
+	# 1080 ms + 16.9 MB (36.79% + 41.11%) my method, time not good
 	def threeSum(self,nums):
 		res = []
 		nums.sort()
