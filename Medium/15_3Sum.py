@@ -73,4 +73,48 @@ class Solution:
 			        pass
 			return list(diction.values())
 		However, this method had time limit exceed problem
-        '''
+		'''
+
+
+		# second time - same as method 2, minor expression difference
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        if not nums:
+            return []
+        positive = []
+        negative = []
+        zero = []
+        for i in nums:
+            if i > 0:
+                positive.append(i)
+            elif i < 0:
+                negative.append(i)
+            else:
+                zero.append(i)
+        positive = sorted(positive)
+        negative = sorted(negative)
+        pos_set = set(positive)
+        neg_set = set(negative)
+        result = set([])
+        
+        if len(zero) > 2:
+            result.add((0,0,0))
+        if len(zero) > 0:
+            for n in negative:
+                if -n in pos_set:
+                    result.add((0,n,-n))
+        # --+
+        n = len(negative)
+        for i in range(n):
+            for j in range(i+1,n):
+                diff = 0-negative[i]-negative[j]
+                if diff in pos_set:
+                    result.add((negative[i],negative[j],diff))
+        # ++-
+        p = len(positive)
+        for i in range(p):
+            for j in range(i+1,p):
+                diff = 0 - positive[i]-positive[j]
+                if diff in neg_set:
+                    result.add((positive[i],positive[j],diff))
+        return list(result)
+        
