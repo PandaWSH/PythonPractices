@@ -1,3 +1,4 @@
+second time -same method, always this method
 class Solution
 	'''
 	premise: the binary tree is height-balanced, 
