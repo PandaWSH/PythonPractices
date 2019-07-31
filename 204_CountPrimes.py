@@ -20,6 +20,7 @@ class Solution:
         return 1
 
 # scientific method Sieve of Eratosthenes
+# second time - same method
 def countPrimes(self, n: int) -> int:
         if n < 3:
             return 0     
