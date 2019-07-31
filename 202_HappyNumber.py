@@ -1,3 +1,4 @@
+#second time 
 class Solution:
 	#my method 32ms, 13.2 MB (98.67%+ 34.83%)
     def isHappy(self, n: int) -> bool:
