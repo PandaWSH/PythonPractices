@@ -7,6 +7,7 @@ class Solution:
             not_rob = max(rob, not_rob)
         return max(rob, not_rob)
 
+# second time
 class Solution:
     def rob(self, nums: List[int]) -> int:
         n = len(nums)
