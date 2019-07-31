@@ -4,6 +4,7 @@
 #         self.val = x
 #         self.next = None
 
+#second time
 class Solution:
     #my method (72ms + 16.3MB, 91.98% + 80.32%)
     def removeElements(self, head: ListNode, val: int) -> ListNode:
