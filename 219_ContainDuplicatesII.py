@@ -1,4 +1,5 @@
 # suspect the auto-grader with flaw, [99,99], 2 returns True????
+# second method -same
 class Solution:
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
         #check exist
