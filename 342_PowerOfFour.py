@@ -1,4 +1,5 @@
 class Solution:
+# second time
     # my method 28ms+13.1MB (99.24% + 87.70%) 
     def isPowerOfFour(self, num: int) -> bool:
         if num>2**31-1 or num<0:
