@@ -32,7 +32,7 @@ class Solution:
         '''
 
 	# the last two conditions could be merged together 99.17%
-	    def isSameTree2(self, p: TreeNode, q: TreeNode) -> bool:
+    def isSameTree2(self, p: TreeNode, q: TreeNode) -> bool:
         if q == None and p == None:
             return True
         elif q == None or p == None:
@@ -71,10 +71,9 @@ class Solution(object):
             if n1 and n2:
                 if n1.val != n2.val:
                     return False
-                stack += [(n1.right, n2.right), (n1.left, n2.left)]
+                stack += [(n1.right, n2.right), (n1.left, n2.left)] #关键
             elif n1 or n2:
                 return False
             else:
                 continue
-            
         return True

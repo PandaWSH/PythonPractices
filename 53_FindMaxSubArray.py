@@ -17,7 +17,6 @@ class Solution(object):
 
     # second time - similar to method one, but use while-loop occupying fewer space
     # 36ms + 13.5MB (97.50% + 85.66%)
-    class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
         # initialize
         summ,i = 0,0

@@ -49,7 +49,7 @@ class Solution(object):
         return head
 
 #https://leetcode-cn.com/problems/two-sum/solution/cong-qian-xu-he-zhong-xu-bian-li-xu-lie-gou-zao-er/
-#64ms + 18.8MB
+# 64ms + 18.8MB
 class Solution:
     def buildTree(self, preorder, inorder):
         """

@@ -10,4 +10,5 @@ class Solution:
                 result = chr(n % 26+64) + result
                 # find the times of full loop, to find the tenth digit num
                 n = int(n/26)
-        return result
+        return 
+        

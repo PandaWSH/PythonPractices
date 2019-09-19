@@ -1,5 +1,5 @@
 class Solution:
-    # My own method 1: 36ms + 13.2MB
+    # My own method 1: 36ms + 13.2MB [80.22% + 27.32%]
     def plusOne(self, digits: List[int]) -> List[int]:
         #initialize index and result
         ind = 1
