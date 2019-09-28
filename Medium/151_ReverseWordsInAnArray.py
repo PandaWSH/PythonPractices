@@ -26,3 +26,10 @@ def rev_word(s):
 
 	return " ".join(reversed(words))
 
+
+# logistic II:
+# using python functions
+def reverseWords(self, s):
+        return " ".join(reversed(s.split()))
+        pass
+
