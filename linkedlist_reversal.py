@@ -28,3 +28,5 @@ def reverse(head):
 
 	return previous
 
+	# https://www.youtube.com/watch?v=D7y_hoT_YZI
+
